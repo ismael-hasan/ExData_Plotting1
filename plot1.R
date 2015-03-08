@@ -1,6 +1,6 @@
 ## This file implements part 1 of the first assignment for the Data Exploratory Analysis course.
 ##
-## If you want to directly create the PNG file, load this code as a source and call doPlotToPng()
+## If you want to directly create the PNG file, load this code as a source and call doPlot1ToPng()
 ##
 
 
