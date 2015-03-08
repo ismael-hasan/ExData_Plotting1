@@ -2,7 +2,8 @@
 ##
 ## If you want to directly create the PNG file, load this code as a source and call doPlot4ToPng()
 ##
-
+## The project will automatically download the zipped data, extract it, and remove the zip file
+## If you have problems running the code, download the zip from https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip to the working directory and extract it, so the working directory contains the file household_power_consumption.txt
 
 ## If the file household_power_consumption.txt exists in the directory it returns it as a data.frame. Otherwise, it tries to obtain it from https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip. Also, it leaves a copy of the file in the working directory.
 ##
@@ -16,6 +17,7 @@
 ## Error handling:
 ##   None. 
 readInputFromUrl <- function() {
+  # All 4 plotX.R files contain a copy of this function. It should be externalized to an utils source, but it is replicated in each source file so all of them are self-contained
   temp.zip<-"./file.zip"
   temp.file<-"household_power_consumption.txt"
   if (!file.exists(temp.file)) {
