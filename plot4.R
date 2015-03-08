@@ -77,7 +77,7 @@ doPlot4.4 <- function(data) {
   with(data,lines(DateTime, Global_reactive_power))
   
 }
-## Reads data via readInputFromUrl and plots 4 different graphs between 01/02/2007 and 02/02/2007. It temporarily modifies the par to show 4 graphs, it restores initial par after finishing
+## Reads data via readInputFromUrl and plots 4 different graphs between 01/02/2007 and 02/02/2007. 
 doPlot4 <- function() {
   initialize()
   data<-readInputFromUrl()
