@@ -30,6 +30,7 @@ readInputFromUrl <- function() {
   data <- read.csv(file = temp.file, sep = ";", stringsAsFactors=FALSE)
   message("Adapting dates, selecting only from  2007-02-01 to 2007-02-02")
   data <- subset(x = data, subset = ((Date=="1/2/2007") | (Date=="2/2/2007")))
+  data$DateTime<- strptime(paste(data$Date, data$Time), format="%d/%m/%Y %H:%M:%S")
   data$Date<-as.Date(data$Date,format="%d/%m/%Y")
   data$Time<-as.Date(data$Time, format="%H:%M")
   data$Global_active_power<-as.double(data$Global_active_power)
@@ -49,14 +50,14 @@ initialize <- function() {
 }
 
 ## Reads data via readInputFromUrl and plots the histogram of Global Active Power between 01/02/2007 and 02/02/2007
-doPlot <- function() {
+doPlot1 <- function() {
   initialize();
   data<-readInputFromUrl();
   hist(data$Global_active_power, col="red",main="Global Active Power", xlab = "Global Active Power (kilowatts)")
 }
 ## Calls to doPlot but setting the device to a png file "plot1.png"
-doPlotToPng <- function() {
+doPlot1ToPng <- function() {
   png(file="plot1.png",width = 480, height = 480)
-  doPlot()
+  doPlot1()
   dev.off()
 }
